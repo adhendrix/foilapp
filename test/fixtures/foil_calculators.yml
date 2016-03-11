@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sheet_quantity: 9.99
+  sheets_per_parent_sheet: 9.99
+  inches_per_parent_sheet: 9.99
+
+two:
+  sheet_quantity: 9.99
+  sheets_per_parent_sheet: 9.99
+  inches_per_parent_sheet: 9.99
