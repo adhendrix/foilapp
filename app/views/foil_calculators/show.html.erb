@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Calculation Results</h1>
+<div>
+  <h2>Sheets</h2>
+    <table border="1" cellpadding="10" cellspacing="0">
+      <th>Quantity: </th>
+      <th>Sheets Per Parent Sheet: </th>
+      <th>Sheets To Print: </th>
+      <tr>
+        <td><%= number_with_precision(@foil_calculator.sheet_quantity, precision: 0) %> Each | Pair | Set</td>
+        <td><%= number_with_precision(@foil_calculator.sheets_per_parent_sheet, precision: 0) %> Each | Pair | Set</td>
+        <td><%= number_with_precision(@foil_calculator.sheets_to_print, precision: 1) %> sheets</td>
+      </tr>
+    </table>
+</div>
+<div>
+  <h2>Yardage</h2>
+  <table border = "1" cellpadding = "10" cellspacing = "0">
+    <th>Inches Per Parent Sheet:</th>
+    <th>Total Inches:</th>
+    <th>Total Yardage:</th>
+    <tr>
+      <td><%= number_with_precision(@foil_calculator.inches_per_parent_sheet, precision: 2) %> in.</td>
+      <td><%= number_with_precision(@foil_calculator.total_size_in_inches, precision: 2) %> in.</td>
+      <td><%= number_with_precision(@foil_calculator.total_yardage, precision: 2) %> yds</td>
+    </tr>
+  </table>
+</div>
+<br>
+<br>
+
+<%= link_to 'Back', foil_calculators_path %>

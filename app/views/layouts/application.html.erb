@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foil Inventory Application</title>
+  <div class = "user_header">
+	<%= link_to 'Foil Management', names_path %> | <%= link_to 'Foil Brand Management', makes_path %> 
+	| <%= link_to 'Foil Length Management', lengths_path %> | <%= link_to 'Foil Calculator', new_foil_calculator_path %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+  </div>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

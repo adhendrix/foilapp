@@ -1,0 +1,35 @@
+<%= form_for(@name) do |f| %>
+  <% if @name.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@name.errors.count, "error") %> prohibited this name from being saved:</h2>
+
+      <ul>
+      <% @name.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :foil_name, "Foil Name:" %><br>
+    <%= f.text_field :foil_name %>
+  </div>
+  <div class="field">
+    <%= f.label :pigment_code, "Pigment Code:" %><br>
+    <%= f.text_field :pigment_code %>
+  </div>
+    <%= f.nested_fields_for :foil_items do |f_foil_item| %>
+        <strong> <%= f_foil_item.label(:make_id,"Foil Type: ") %></strong>
+        <%= f_foil_item.collection_select(:make_id,Make.all,:id,:foil_make) %>
+        <strong> <%= f_foil_item.label(:length_id,"Starting Foil Length: ")%></strong>
+        <%= f_foil_item.collection_select(:length_id,Length.all,:id,:foil_length) %>
+        <strong> <%= f_foil_item.label(:foil_used_length,"New Foil Length: ")%></strong>
+        <%= f_foil_item.number_field(:foil_used_length) %> <br/>
+        <%= f_foil_item.remove_nested_fields_link "Remove Foil", data: {confirm: "Clicking OK will remove line item. Confirm line item removal?"} %>
+    <% end %>
+    <%= f.add_nested_fields_link :foil_items, "Add Foil" %>
+  <div class="actions">
+    <%= f.submit 'Add New Foil'%>
+  </div>
+<% end %>

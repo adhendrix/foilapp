@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>Foil Name</h2>
+  <%= @name.name_with_pigment_code %>
+</p>
+
+
+<div>
+  <h2>Foil Inventory</h2>
+  <table border="1" cellpadding="10" cellspacing="0">
+    <th>Foil Type: </th>
+    <th>Starting Foil Length: </th>
+    <th>New Foil Length: </th>
+    <th>Last Updated: </th>
+    <% @name.foil_items.each do |fi| %>
+        <tr>
+          <td><%=fi.make.foil_make%></td>
+          <td><%=fi.length.foil_length%></td>
+          <td><%=fi.foil_used_length%> Yds</td>
+          <td><%=fi.date_updated_converted%></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<br>
+<br>
+<p>
+  <strong>Total Starting Foil Length:</strong>
+  <%= @name.sum_starting_foil_length %> Yds
+</p>
+<p>
+  <strong>Total Foil Used:</strong>
+  <%= @name.sum_foil_used %> Yds
+</p>
+<p>
+  <strong>Remaining Foil:</strong>
+  <%= @name.remaining_foil_length %> Yds
+</p>
+
+<%= link_to 'Edit', edit_name_path(@name) %> |
+<%= link_to 'Back', names_path %>

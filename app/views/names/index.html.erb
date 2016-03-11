@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Foil Roster</h1>
+
+<table border="1" cellpadding="4" cellspacing="0">
+  <thead>
+    <tr>
+      <th><%= sortable "foil_name", "Foil Name" %></th>
+      <th>Remaining Foil</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @names.each do |name| %>
+      <tr>
+        <td><%= name.name_with_pigment_code %></td>
+        <td><%= name.remaining_foil_length %> Yds</td>
+        <td><%= link_to 'Show', name %> |
+            <%= link_to 'Edit', edit_name_path(name) %> |
+            <%= link_to 'Destroy', name, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Foil', new_name_path %>

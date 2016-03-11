@@ -1,0 +1,29 @@
+<%= form_for(@foil_calculator) do |f| %>
+  <% if @foil_calculator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@foil_calculator.errors.count, "error") %> prohibited this foil_calculator from being saved:</h2>
+
+      <ul>
+      <% @foil_calculator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sheet_quantity, "Sheet Quantity:" %><br>
+    <%= f.text_field :sheet_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :sheets_per_parent_sheet, "Sheets(Eaches/Pairs) Per Parent Sheet:" %><br>
+    <%= f.text_field :sheets_per_parent_sheet %>
+  </div>
+  <div class="field">
+    <%= f.label :inches_per_parent_sheet, "Inches Per Parent Sheet:" %><br>
+    <%= f.text_field :inches_per_parent_sheet %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Calculate" %>
+  </div>
+<% end %>

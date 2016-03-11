@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Foil used length:</strong>
+  <%= @foil_item.foil_used_length %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @foil_item.name.foil_name %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @foil_item.make.foil_make %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @foil_item.length.foil_length %>
+</p>
+
+
+<p>
+  <strong>Remaining Foil Length:</strong>
+  <%= @foil_item.foil_used_cal %>
+</p>
+
+<p>
+  <strong>Sum Starting Foil Int:</strong>
+  <%= @foil_item.starting_foil_length_int %>
+</p>
+<p>
+  <strong>Date Updated TEST:</strong>
+  <%= @foil_item.date_updated_converted %>
+</p>
+
+
+<%= link_to 'Edit', edit_foil_item_path(@foil_item) %> |
+<%= link_to 'Back', foil_items_path %>

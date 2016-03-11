@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Foil Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Foil used length</th>
+      <th>Name</th>
+      <th>Make</th>
+      <th>Length</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foil_items.each do |foil_item| %>
+      <tr>
+        <td><%= foil_item.foil_used_length %></td>
+        <td><%= foil_item.name.foil_name %></td>
+        <td><%= foil_item.make.foil_make %></td>
+        <td><%= foil_item.length.foil_length %></td>
+        <td><%= link_to 'Show', foil_item %></td>
+        <td><%= link_to 'Edit', edit_foil_item_path(foil_item) %></td>
+        <td><%= link_to 'Destroy', foil_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Foil item', new_foil_item_path %>

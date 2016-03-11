@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Foil Calculators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sheet quantity</th>
+      <th>Sheets per parent sheet</th>
+      <th>Inches per parent sheet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foil_calculators.each do |foil_calculator| %>
+      <tr>
+        <td><%= foil_calculator.sheet_quantity %></td>
+        <td><%= foil_calculator.sheets_per_parent_sheet %></td>
+        <td><%= foil_calculator.inches_per_parent_sheet %></td>
+        <td><%= link_to 'Show', foil_calculator %></td>
+        <td><%= link_to 'Edit', edit_foil_calculator_path(foil_calculator) %></td>
+        <td><%= link_to 'Destroy', foil_calculator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Foil calculator', new_foil_calculator_path %>

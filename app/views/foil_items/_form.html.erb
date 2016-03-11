@@ -1,0 +1,33 @@
+<%= form_for(@foil_item) do |f| %>
+  <% if @foil_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@foil_item.errors.count, "error") %> prohibited this foil_item from being saved:</h2>
+
+      <ul>
+      <% @foil_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :foil_used_length %><br>
+    <%= f.number_field :foil_used_length %>
+  </div>
+  <div class="field">
+    <%= f.label :name_id, "Foil Name:" %><br>
+    <%= f.collection_select(:name_id,Name.all,:id,:foil_name) %><br>
+  </div>
+  <div class="field">
+    <%= f.label :make_id, "Foil Type:" %><br>
+    <%= f.collection_select(:make_id,Make.all,:id,:foil_make) %><br>
+  </div>
+  <div class="field">
+    <%= f.label :length_id, "New Foil Length:" %><br>
+    <%= f.collection_select(:length_id,Length.all,:id,:foil_length) %><br>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

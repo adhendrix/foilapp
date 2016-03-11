@@ -1,0 +1,2 @@
+module FoilCalculatorsHelper
+end
